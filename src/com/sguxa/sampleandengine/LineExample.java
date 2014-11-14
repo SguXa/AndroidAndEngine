@@ -97,4 +97,5 @@ public class LineExample extends SimpleBaseGameActivity {
         scene.attachChild(face);
         return scene;
     }
+    //ok
 }
