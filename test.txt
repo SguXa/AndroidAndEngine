@@ -1,0 +1,109 @@
+public class AndEnginePart2Activity extends BaseGameActivity { 
+ 
+      private Display display;  
+
+      private static int CAMERA_WIDTH = 0;       
+      private static int CAMERA_HEIGHT = 0;   
+
+      private Camera mCamera;  
+      private Scene mScene;
+
+      private BitmapTextureAtlas mFontTexture;  
+      private Font mFont;   
+      private BitmapTextureAtlas mBitmapTextureAtlas;       
+      private TextureRegion monsterTexture;  
+
+      private Monster monster; 
+      private ChangeableText scoreText;  
+
+      // В onLoadEngine мы инициализируем движок  
+      @Override  
+      public Engine onLoadEngine() {  
+           // TODO Auto-generated method stub 
+
+           WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);  
+           display = wm.getDefaultDisplay(); 
+ 
+           // Получаем ширину и высоту нашего экрана  
+           CAMERA_WIDTH = display.getWidth();  
+           CAMERA_HEIGHT = display.getHeight(); 
+ 
+           // Создаем камеру 
+           this.mCamera = new Camera(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT); 
+           
+           // Создаем движок 
+           return new Engine(new EngineOptions(true, ScreenOrientation.LANDSCAPE, new RatioResolutionPolicy(CAMERA_WIDTH, CAMERA_HEIGHT), this.mCamera));  
+      }  
+
+      // В onLoadResources мы будем загружать ресурсы, 
+      // необходимые для нашего приложения, картинки, музыка, и т.д...  
+      @Override  
+      public void onLoadResources() {  
+           // TODO Auto-generated method stub 
+ 
+           // Создаем новую текстуру 256х256, помните её размер должен быть кратный 2
+           this.mBitmapTextureAtlas = new BitmapTextureAtlas(256, 256, TextureOptions.BILINEAR_PREMULTIPLYALPHA);
+
+           // Создаем тектуру для текста
+           this.mFontTexture = new BitmapTextureAtlas(256, 256, TextureOptions.BILINEAR);
+           
+           // Загружаем тектуру монстра  
+           this.monsterTexture = BitmapTextureAtlasTextureRegionFactory.createFromAsset(this.mBitmapTextureAtlas, this, "monster/monster.png", 0, 0); 
+
+           // Создаем шрифт
+           this.mFont = new Font(this.mFontTexture, Typeface.create(Typeface.DEFAULT, Typeface.BOLD), 32, true, Color.BLACK );
+           this.mFont.prepareLetters("1234567890".toCharArray());
+ 
+           // Загружаем тектуры и шрифт в память  
+           this.mEngine.getTextureManager().loadTexture(this.mBitmapTextureAtlas); 
+           this.mEngine.getTextureManager().loadTexture(this.mFontTexture); 
+           this.mEngine.getFontManager().loadFont(this.mFont);  
+      }  
+
+      // В onLoadScene мы создаем сцену  
+      @Override  
+      public Scene onLoadScene() {  
+           // TODO Auto-generated method stub  
+           this.mEngine.registerUpdateHandler(new FPSLogger()); 
+           
+           // Создаем сцену
+           mScene = new Scene();
+  
+           // Устанавливаем цвет фона сцены 
+           mScene.setBackground(new ColorBackground(0.96f, 0.9215f, 0.8157f)); 
+ 
+           // Создаем нашего монстра и устанавливаем его на определенную позицию 
+           monster = new Monster(CAMERA_WIDTH / 2, CAMERA_HEIGHT - 200, this.monsterTexture);   
+
+           // Добавляем монстра на нашу сцену  
+           mScene.attachChild(monster);
+
+           // Создаем score-текст  
+           scoreText = new ChangeableText(CAMERA_WIDTH - 220, 20, this.mFont, "Score :", "Score : XXXXX".length());
+
+           // Добавляем текст на нашу сцену  
+           mScene.attachChild(scoreText);    
+
+           // Создаем цикл нашей сцены, в этом примере мы ничего не будет там делать
+           mScene.registerUpdateHandler(new IUpdateHandler() {  
+
+             @Override  
+             public void onUpdate(float arg0) { 
+                  // Расположение этой строки здесь только для примера
+                  scoreText.setText("Score : " + AndEnginePart2Activity.this.mEngine.getSecondsElapsedTotal());
+                  // ...  
+             }  
+
+             @Override  
+             public void reset() {  
+                  // ...
+             }  
+           });  
+           return mScene;  
+      } 
+ 
+      @Override  
+      public void onLoadComplete() {  
+           // TODO Auto-generated method stub  
+      }  
+ }  
