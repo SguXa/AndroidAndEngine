@@ -25,7 +25,7 @@ public class AnimationSprite extends SimpleBaseGameActivity {
 	 private Scene m_Scene;
 	 private Camera    m_Camera;
 //	 private static int   SPR_COLUMN  = 2;
-	 private static int   SPR_ROWS  = 4;
+	 private static int   SPR_ROWS  = 5;
 	  
 	 private static final int CAMERA_WIDTH = 480;
 	 private static final int CAMERA_HEIGHT = 320;
@@ -34,8 +34,7 @@ public class AnimationSprite extends SimpleBaseGameActivity {
 	 public EngineOptions onCreateEngineOptions() 
 	 {
 	  m_Camera = new Camera(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
-	  EngineOptions en = new EngineOptions(true, ScreenOrientation.LANDSCAPE_FIXED, new RatioResolutionPolicy(
-	  CAMERA_WIDTH, CAMERA_HEIGHT), m_Camera);
+	  EngineOptions en = new EngineOptions(true,ScreenOrientation.LANDSCAPE_SENSOR,new RatioResolutionPolicy(CAMERA_WIDTH,CAMERA_HEIGHT),m_Camera);
 	  return en;
 	 }
 	  
@@ -52,6 +51,8 @@ public class AnimationSprite extends SimpleBaseGameActivity {
 	 {
 	  m_Scene = new Scene();
 	  m_Scene.setBackground(new Background(Color.WHITE));
+	  
+	  
 	    
 	  sprCat = new AnimatedSprite(0, 0, regCat, this.getVertexBufferObjectManager());
 	  m_Scene.attachChild(sprCat);
