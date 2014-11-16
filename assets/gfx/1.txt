@@ -1,0 +1,2362 @@
+Simple plain text exporter for demo purposes
+
+See http://www.grantlee.org/apidox/for_themers.html for more information
+
+Texture data:
+    texture.width  = 22
+    texture.height = 108
+
+    texture.trimmedName = chel_run
+    texture.fullName = chel_run.png
+    texture.absoluteFileName = C:/Android/workspace/AndroidAndEngine/assets/gfx/chel_run.png
+
+SmartUpdateHash: $TexturePacker:SmartUpdate:a3ccd46044a7897e9147fa09838c1217:a96888b5eba23748defcec77c9558e78:333c0568c41de5f342f853768059cd9f$
+
+Settings:
+
+Access to all values in the settings (.tps file):
+
+settings.tpsName                = unsaved ("unsaved" if used from command line without .tps file)
+settings.allowRotation          = true
+settings.autoAliasEnabled       = true
+settings.flipPVR                = false
+settings.forceIdenticalLayout   = false
+settings.multiPack              = false
+settings.premultiplyAlpha       = false
+settings.shapeDebug             = false
+settings.trimSpriteNames        = false
+settings.fixedTextureSize       = -1 x -1
+settings.dataFormat             = plain
+settings.textureSubPath         = 
+settings.ditherType             = NearestNeighbour
+settings.outputFormat           = RGBA8888
+settings.textureFormat          = png
+settings.backgroundColor        = 0
+settings.borderPadding          = 2
+settings.shapePadding           = 2
+settings.commonDivisorX         = 1
+settings.commonDivisorY         = 1
+settings.dpi                    = 72
+settings.reduceBorderArtifacts  = true
+
+settings.contentProtection.key  = 
+
+Variants:
+
+---
+variant.scale = 1
+variant.extension = 
+variant.spriteFilter = 
+variant.acceptFractionalValues = false
+variant.maxTextureSize = -1 x -1
+
+
+
+Not yet available:
+
+settings.dataFileNames          = 
+settings.textureFileName        = 
+settings.algorithmSettings      = 
+settings.globalSpriteSettings   = 
+
+Adjusted values for the current autosd variant:
+
+variantParams.scale             = 1
+variantParams.shapePadding      = 2
+variantParams.borderPadding     = 2
+variantParams.commonDivisorX    = 1
+variantParams.commonDivisorY    = 1
+variantParams.extrude           = 0
+variantParams.baseFactor        = 1
+variantParams.maxTextureSize    = 2048 x 2048
+variantParams.fixedTextureSize  = -1 x -1
+
+Sprite data:
+
+There are 2 variants:
+- sprites - contains the sprites, aliases are available in the
+  aliasList property and are not added top level
+
+- allSprites - list of all sprites
+
+Load javascript filter plugin, must be located in the exporter's folder in a subfolder
+grantlee/0.2/makecssselector.qs
+
+
+// set width & height for calculations using the javascript filter
+
+
+
+
+    =========================================================================
+
+    Use the javascript filter plugin to replace -hover with :hover
+    GTA2_PED_200.bmp
+
+    -- name without image type extension
+    sprite.trimmedName      = GTA2_PED_200
+
+    -- name with image extension
+    sprite.fullName         = GTA2_PED_200.bmp
+
+    -- offset of the center of the trimmed sprite from the
+    -- center of the original sprite (used by cocos2d)
+    sprite.centerOffset.x = 0
+    sprite.centerOffset.y = 0
+
+    -- list of alias sprites for this one
+    sprite.aliasList = 
+
+    --- frame rectangle with pixel coordinates
+    sprite.frameRect.x = 2
+    sprite.frameRect.y = 42
+    sprite.frameRect.width = 16
+    sprite.frameRect.height = 22
+
+    --- frame rectangle with uv coordinates (0..1)
+    sprite.frameRectRel.x = 0.0909090909090909
+    sprite.frameRectRel.y = 0.388888888888889
+    sprite.frameRectRel.width = 0.727272727272727
+    sprite.frameRectRel.height = 0.203703703703704
+
+    --- frame rectangle with uv coordinates (0..1) calculated through JS
+    sprite.frameRectRel.x = 0.09090909090909091
+    sprite.frameRectRel.y = 1.9090909090909092
+    sprite.frameRectRel.width = 0.7272727272727273
+    sprite.frameRectRel.height = 1
+
+    --- version of the frame rect with "original" width and height
+    sprite.frameRectWithoutRotation.x = 2
+    sprite.frameRectWithoutRotation.y = 42
+    sprite.frameRectWithoutRotation.width = 16
+    sprite.frameRectWithoutRotation.height = 22
+
+    -- true if the sprite was rotated
+    sprite.rotated        = false
+
+    -- true if the sprite does not contain any transparent pixels
+    sprite.isSolid        = true
+
+    -- true if the sprite was trimmed
+    sprite.trimmed        = false
+
+    sprite.sourceRect.x = 0
+    sprite.sourceRect.y = 0
+    sprite.sourceRect.width = 16
+    sprite.sourceRect.height = 22
+
+    sprite.cornerOffset.x = 0
+    sprite.cornerOffset.y = 0
+
+    sprite.untrimmedSize.width = 16
+    sprite.untrimmedSize.height = 22
+
+    -- the file absolute file name of the sprite
+    sprite.fileData.absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_200.bmp
+
+    -- the modification date of the sprite
+    sprite.fileData.lastModified = 2008-08-22T04:24:02
+
+    -- the creation date of the sprite
+    sprite.fileData.created = 2014-11-14T23:40:45
+
+    -- the file size of the sprite
+    sprite.fileData.fileSize = 1430
+
+
+    =========================================================================
+
+    Use the javascript filter plugin to replace -hover with :hover
+    GTA2_PED_203.bmp
+
+    -- name without image type extension
+    sprite.trimmedName      = GTA2_PED_203
+
+    -- name with image extension
+    sprite.fullName         = GTA2_PED_203.bmp
+
+    -- offset of the center of the trimmed sprite from the
+    -- center of the original sprite (used by cocos2d)
+    sprite.centerOffset.x = 0
+    sprite.centerOffset.y = 0
+
+    -- list of alias sprites for this one
+    sprite.aliasList = 
+
+    --- frame rectangle with pixel coordinates
+    sprite.frameRect.x = 2
+    sprite.frameRect.y = 66
+    sprite.frameRect.width = 16
+    sprite.frameRect.height = 22
+
+    --- frame rectangle with uv coordinates (0..1)
+    sprite.frameRectRel.x = 0.0909090909090909
+    sprite.frameRectRel.y = 0.611111111111111
+    sprite.frameRectRel.width = 0.727272727272727
+    sprite.frameRectRel.height = 0.203703703703704
+
+    --- frame rectangle with uv coordinates (0..1) calculated through JS
+    sprite.frameRectRel.x = 0.09090909090909091
+    sprite.frameRectRel.y = 3
+    sprite.frameRectRel.width = 0.7272727272727273
+    sprite.frameRectRel.height = 1
+
+    --- version of the frame rect with "original" width and height
+    sprite.frameRectWithoutRotation.x = 2
+    sprite.frameRectWithoutRotation.y = 66
+    sprite.frameRectWithoutRotation.width = 16
+    sprite.frameRectWithoutRotation.height = 22
+
+    -- true if the sprite was rotated
+    sprite.rotated        = false
+
+    -- true if the sprite does not contain any transparent pixels
+    sprite.isSolid        = true
+
+    -- true if the sprite was trimmed
+    sprite.trimmed        = false
+
+    sprite.sourceRect.x = 0
+    sprite.sourceRect.y = 0
+    sprite.sourceRect.width = 16
+    sprite.sourceRect.height = 22
+
+    sprite.cornerOffset.x = 0
+    sprite.cornerOffset.y = 0
+
+    sprite.untrimmedSize.width = 16
+    sprite.untrimmedSize.height = 22
+
+    -- the file absolute file name of the sprite
+    sprite.fileData.absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_203.bmp
+
+    -- the modification date of the sprite
+    sprite.fileData.lastModified = 2008-08-22T04:24:03
+
+    -- the creation date of the sprite
+    sprite.fileData.created = 2014-11-14T23:40:45
+
+    -- the file size of the sprite
+    sprite.fileData.fileSize = 1430
+
+
+    =========================================================================
+
+    Use the javascript filter plugin to replace -hover with :hover
+    GTA2_PED_204.bmp
+
+    -- name without image type extension
+    sprite.trimmedName      = GTA2_PED_204
+
+    -- name with image extension
+    sprite.fullName         = GTA2_PED_204.bmp
+
+    -- offset of the center of the trimmed sprite from the
+    -- center of the original sprite (used by cocos2d)
+    sprite.centerOffset.x = 0
+    sprite.centerOffset.y = 0
+
+    -- list of alias sprites for this one
+    sprite.aliasList = 
+
+    --- frame rectangle with pixel coordinates
+    sprite.frameRect.x = 2
+    sprite.frameRect.y = 90
+    sprite.frameRect.width = 16
+    sprite.frameRect.height = 16
+
+    --- frame rectangle with uv coordinates (0..1)
+    sprite.frameRectRel.x = 0.0909090909090909
+    sprite.frameRectRel.y = 0.833333333333333
+    sprite.frameRectRel.width = 0.727272727272727
+    sprite.frameRectRel.height = 0.148148148148148
+
+    --- frame rectangle with uv coordinates (0..1) calculated through JS
+    sprite.frameRectRel.x = 0.09090909090909091
+    sprite.frameRectRel.y = 4.090909090909091
+    sprite.frameRectRel.width = 0.7272727272727273
+    sprite.frameRectRel.height = 0.7272727272727273
+
+    --- version of the frame rect with "original" width and height
+    sprite.frameRectWithoutRotation.x = 2
+    sprite.frameRectWithoutRotation.y = 90
+    sprite.frameRectWithoutRotation.width = 16
+    sprite.frameRectWithoutRotation.height = 16
+
+    -- true if the sprite was rotated
+    sprite.rotated        = false
+
+    -- true if the sprite does not contain any transparent pixels
+    sprite.isSolid        = true
+
+    -- true if the sprite was trimmed
+    sprite.trimmed        = false
+
+    sprite.sourceRect.x = 0
+    sprite.sourceRect.y = 0
+    sprite.sourceRect.width = 16
+    sprite.sourceRect.height = 16
+
+    sprite.cornerOffset.x = 0
+    sprite.cornerOffset.y = 0
+
+    sprite.untrimmedSize.width = 16
+    sprite.untrimmedSize.height = 16
+
+    -- the file absolute file name of the sprite
+    sprite.fileData.absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_204.bmp
+
+    -- the modification date of the sprite
+    sprite.fileData.lastModified = 2008-08-22T04:24:03
+
+    -- the creation date of the sprite
+    sprite.fileData.created = 2014-11-14T23:40:45
+
+    -- the file size of the sprite
+    sprite.fileData.fileSize = 1334
+
+
+    =========================================================================
+
+    Use the javascript filter plugin to replace -hover with :hover
+    GTA2_PED_208.bmp
+
+    -- name without image type extension
+    sprite.trimmedName      = GTA2_PED_208
+
+    -- name with image extension
+    sprite.fullName         = GTA2_PED_208.bmp
+
+    -- offset of the center of the trimmed sprite from the
+    -- center of the original sprite (used by cocos2d)
+    sprite.centerOffset.x = 0
+    sprite.centerOffset.y = 0
+
+    -- list of alias sprites for this one
+    sprite.aliasList = 
+
+    --- frame rectangle with pixel coordinates
+    sprite.frameRect.x = 2
+    sprite.frameRect.y = 2
+    sprite.frameRect.width = 18
+    sprite.frameRect.height = 18
+
+    --- frame rectangle with uv coordinates (0..1)
+    sprite.frameRectRel.x = 0.0909090909090909
+    sprite.frameRectRel.y = 0.0185185185185185
+    sprite.frameRectRel.width = 0.818181818181818
+    sprite.frameRectRel.height = 0.166666666666667
+
+    --- frame rectangle with uv coordinates (0..1) calculated through JS
+    sprite.frameRectRel.x = 0.09090909090909091
+    sprite.frameRectRel.y = 0.09090909090909091
+    sprite.frameRectRel.width = 0.8181818181818182
+    sprite.frameRectRel.height = 0.8181818181818182
+
+    --- version of the frame rect with "original" width and height
+    sprite.frameRectWithoutRotation.x = 2
+    sprite.frameRectWithoutRotation.y = 2
+    sprite.frameRectWithoutRotation.width = 18
+    sprite.frameRectWithoutRotation.height = 18
+
+    -- true if the sprite was rotated
+    sprite.rotated        = false
+
+    -- true if the sprite does not contain any transparent pixels
+    sprite.isSolid        = true
+
+    -- true if the sprite was trimmed
+    sprite.trimmed        = false
+
+    sprite.sourceRect.x = 0
+    sprite.sourceRect.y = 0
+    sprite.sourceRect.width = 18
+    sprite.sourceRect.height = 18
+
+    sprite.cornerOffset.x = 0
+    sprite.cornerOffset.y = 0
+
+    sprite.untrimmedSize.width = 18
+    sprite.untrimmedSize.height = 18
+
+    -- the file absolute file name of the sprite
+    sprite.fileData.absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_208.bmp
+
+    -- the modification date of the sprite
+    sprite.fileData.lastModified = 2008-08-22T04:24:03
+
+    -- the creation date of the sprite
+    sprite.fileData.created = 2014-11-14T23:40:45
+
+    -- the file size of the sprite
+    sprite.fileData.fileSize = 1438
+
+
+    =========================================================================
+
+    Use the javascript filter plugin to replace -hover with :hover
+    GTA2_PED_211.bmp
+
+    -- name without image type extension
+    sprite.trimmedName      = GTA2_PED_211
+
+    -- name with image extension
+    sprite.fullName         = GTA2_PED_211.bmp
+
+    -- offset of the center of the trimmed sprite from the
+    -- center of the original sprite (used by cocos2d)
+    sprite.centerOffset.x = 0
+    sprite.centerOffset.y = 0
+
+    -- list of alias sprites for this one
+    sprite.aliasList = 
+
+    --- frame rectangle with pixel coordinates
+    sprite.frameRect.x = 2
+    sprite.frameRect.y = 22
+    sprite.frameRect.width = 18
+    sprite.frameRect.height = 18
+
+    --- frame rectangle with uv coordinates (0..1)
+    sprite.frameRectRel.x = 0.0909090909090909
+    sprite.frameRectRel.y = 0.203703703703704
+    sprite.frameRectRel.width = 0.818181818181818
+    sprite.frameRectRel.height = 0.166666666666667
+
+    --- frame rectangle with uv coordinates (0..1) calculated through JS
+    sprite.frameRectRel.x = 0.09090909090909091
+    sprite.frameRectRel.y = 1
+    sprite.frameRectRel.width = 0.8181818181818182
+    sprite.frameRectRel.height = 0.8181818181818182
+
+    --- version of the frame rect with "original" width and height
+    sprite.frameRectWithoutRotation.x = 2
+    sprite.frameRectWithoutRotation.y = 22
+    sprite.frameRectWithoutRotation.width = 18
+    sprite.frameRectWithoutRotation.height = 18
+
+    -- true if the sprite was rotated
+    sprite.rotated        = false
+
+    -- true if the sprite does not contain any transparent pixels
+    sprite.isSolid        = true
+
+    -- true if the sprite was trimmed
+    sprite.trimmed        = false
+
+    sprite.sourceRect.x = 0
+    sprite.sourceRect.y = 0
+    sprite.sourceRect.width = 18
+    sprite.sourceRect.height = 18
+
+    sprite.cornerOffset.x = 0
+    sprite.cornerOffset.y = 0
+
+    sprite.untrimmedSize.width = 18
+    sprite.untrimmedSize.height = 18
+
+    -- the file absolute file name of the sprite
+    sprite.fileData.absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_211.bmp
+
+    -- the modification date of the sprite
+    sprite.fileData.lastModified = 2008-08-22T04:24:03
+
+    -- the creation date of the sprite
+    sprite.fileData.created = 2014-11-14T23:40:45
+
+    -- the file size of the sprite
+    sprite.fileData.fileSize = 1438
+
+
+
+#### Complete dump of all available objects
+
+### Values for the current texture
+The following values are available inside templates that are written for each
+variant or multipack. They are not available in a file that has the following values set:
+<hasSeparateAutoSDFiles>all</hasSeparateAutoSDFiles>
+<hasSeparateMultiPackFiles>last</hasSeparateMultiPackFiles>
+
+## sprites
+Contains the sprite of the current file, aliases are available through the aliasList property
+Shortcut into texture.sprites
+
+## allSprites
+Contains all sprites of the current file including aliases.
+Shortcut into texture.allSprites
+
+## texture
+Contains information about the current texture, size, and other information.
+Shortcut into allResults[variantIndex].textures[multiPackIndex]
+
+## variantParams
+The data the current file was created with
+
+### Values for all files
+The following values are available for all templates
+
+## settings
+The main settigns the file was created with
+
+## smartUpdateKey
+The key for this file used to check file consistency and avoid re-calculating
+data that is already available
+
+## multiPackIndex
+The multipack index number the current file was created with
+
+## variantIndex
+The AutoSD variant index the file was created with
+
+## allResults
+All texture and sprite information in a big array
+
+smartUpdateKey = $TexturePacker:SmartUpdate:a3ccd46044a7897e9147fa09838c1217:a96888b5eba23748defcec77c9558e78:333c0568c41de5f342f853768059cd9f$
+
+multiPackIndex = 0
+
+variantIndex = 0
+
+variantParams = {
+    scale = 1
+    shapePadding = 2
+    borderPadding = 2
+    commonDivisorX = 1
+    commonDivisorY = 1
+    extrude = 0
+    baseFactor = 1
+    maxTextureSize = {
+        width = 2048
+        height = 2048
+    }
+    fixedTextureSize = {
+        width = -1
+        height = -1
+    }
+}
+
+settings = {
+    ditherType = NearestNeighbour
+    textureFormat = png
+    outputFormat = RGBA8888
+    contentProtection = {
+        key = 
+    }
+    autoSDSettings = {
+        0 = {
+            scale = 1
+            extension = 
+            spriteFilter = 
+            acceptFractionalValues = false
+            maxTextureSize = {
+                width = -1
+                height = -1
+            }
+        }
+    }
+    tpsName = unsaved
+    allowRotation = true
+    flipPVR = false
+    forceIdenticalLayout = false
+    multiPack = false
+    shapeDebug = false
+    trimSpriteNames = false
+    autoAliasEnabled = true
+    premultiplyAlpha = false
+    reduceBorderArtifacts = true
+    fixedTextureSize = {
+        width = -1
+        height = -1
+    }
+    dataFormat = plain
+    textureSubPath = 
+    borderPadding = 2
+    shapePadding = 2
+    commonDivisorX = 1
+    commonDivisorY = 1
+    dpi = 72
+    backgroundColor = 0
+}
+
+allResults = {
+    0 = {
+        textures = {
+            0 = {
+                size = {
+                    width = 22
+                    height = 108
+                }
+                area = 2376
+                sprites = {
+                    0 = {
+                        size = {
+                            width = 18
+                            height = 18
+                        }
+                        frameRectWithoutRotation = {
+                            x = 2
+                            y = 2
+                            width = 18
+                            height = 18
+                        }
+                        frameRect = {
+                            x = 2
+                            y = 2
+                            width = 18
+                            height = 18
+                        }
+                        frameRectRel = {
+                            x = 0.09090909090909091
+                            y = 0.018518518518518517
+                            width = 0.8181818181818182
+                            height = 0.16666666666666666
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 18
+                            height = 18
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 18
+                            height = 18
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_208.bmp
+                            lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+                            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                            fileSize = 1438
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = GTA2_PED_208
+                        fullName = GTA2_PED_208.bmp
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 9
+                            y = 9
+                        }
+                    }
+                    1 = {
+                        size = {
+                            width = 18
+                            height = 18
+                        }
+                        frameRectWithoutRotation = {
+                            x = 2
+                            y = 22
+                            width = 18
+                            height = 18
+                        }
+                        frameRect = {
+                            x = 2
+                            y = 22
+                            width = 18
+                            height = 18
+                        }
+                        frameRectRel = {
+                            x = 0.09090909090909091
+                            y = 0.2037037037037037
+                            width = 0.8181818181818182
+                            height = 0.16666666666666666
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 18
+                            height = 18
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 18
+                            height = 18
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_211.bmp
+                            lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+                            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                            fileSize = 1438
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = GTA2_PED_211
+                        fullName = GTA2_PED_211.bmp
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 9
+                            y = 9
+                        }
+                    }
+                    2 = {
+                        size = {
+                            width = 16
+                            height = 22
+                        }
+                        frameRectWithoutRotation = {
+                            x = 2
+                            y = 42
+                            width = 16
+                            height = 22
+                        }
+                        frameRect = {
+                            x = 2
+                            y = 42
+                            width = 16
+                            height = 22
+                        }
+                        frameRectRel = {
+                            x = 0.09090909090909091
+                            y = 0.3888888888888889
+                            width = 0.7272727272727273
+                            height = 0.2037037037037037
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 16
+                            height = 22
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 16
+                            height = 22
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_200.bmp
+                            lastModified = {Fri Aug 22 2008 04:24:02 GMT+0400 (RTZ 2 (}
+                            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                            fileSize = 1430
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = GTA2_PED_200
+                        fullName = GTA2_PED_200.bmp
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 8
+                            y = 11
+                        }
+                    }
+                    3 = {
+                        size = {
+                            width = 16
+                            height = 22
+                        }
+                        frameRectWithoutRotation = {
+                            x = 2
+                            y = 66
+                            width = 16
+                            height = 22
+                        }
+                        frameRect = {
+                            x = 2
+                            y = 66
+                            width = 16
+                            height = 22
+                        }
+                        frameRectRel = {
+                            x = 0.09090909090909091
+                            y = 0.6111111111111112
+                            width = 0.7272727272727273
+                            height = 0.2037037037037037
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 16
+                            height = 22
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 16
+                            height = 22
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_203.bmp
+                            lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+                            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                            fileSize = 1430
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = GTA2_PED_203
+                        fullName = GTA2_PED_203.bmp
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 8
+                            y = 11
+                        }
+                    }
+                    4 = {
+                        size = {
+                            width = 16
+                            height = 16
+                        }
+                        frameRectWithoutRotation = {
+                            x = 2
+                            y = 90
+                            width = 16
+                            height = 16
+                        }
+                        frameRect = {
+                            x = 2
+                            y = 90
+                            width = 16
+                            height = 16
+                        }
+                        frameRectRel = {
+                            x = 0.09090909090909091
+                            y = 0.8333333333333334
+                            width = 0.7272727272727273
+                            height = 0.14814814814814814
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 16
+                            height = 16
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 16
+                            height = 16
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_204.bmp
+                            lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+                            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                            fileSize = 1334
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = GTA2_PED_204
+                        fullName = GTA2_PED_204.bmp
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 8
+                            y = 8
+                        }
+                    }
+                }
+                allSprites = {
+                    0 = {
+                        size = {
+                            width = 18
+                            height = 18
+                        }
+                        frameRectWithoutRotation = {
+                            x = 2
+                            y = 2
+                            width = 18
+                            height = 18
+                        }
+                        frameRect = {
+                            x = 2
+                            y = 2
+                            width = 18
+                            height = 18
+                        }
+                        frameRectRel = {
+                            x = 0.09090909090909091
+                            y = 0.018518518518518517
+                            width = 0.8181818181818182
+                            height = 0.16666666666666666
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 18
+                            height = 18
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 18
+                            height = 18
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_208.bmp
+                            lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+                            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                            fileSize = 1438
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = GTA2_PED_208
+                        fullName = GTA2_PED_208.bmp
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 9
+                            y = 9
+                        }
+                    }
+                    1 = {
+                        size = {
+                            width = 18
+                            height = 18
+                        }
+                        frameRectWithoutRotation = {
+                            x = 2
+                            y = 22
+                            width = 18
+                            height = 18
+                        }
+                        frameRect = {
+                            x = 2
+                            y = 22
+                            width = 18
+                            height = 18
+                        }
+                        frameRectRel = {
+                            x = 0.09090909090909091
+                            y = 0.2037037037037037
+                            width = 0.8181818181818182
+                            height = 0.16666666666666666
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 18
+                            height = 18
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 18
+                            height = 18
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_211.bmp
+                            lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+                            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                            fileSize = 1438
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = GTA2_PED_211
+                        fullName = GTA2_PED_211.bmp
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 9
+                            y = 9
+                        }
+                    }
+                    2 = {
+                        size = {
+                            width = 16
+                            height = 22
+                        }
+                        frameRectWithoutRotation = {
+                            x = 2
+                            y = 42
+                            width = 16
+                            height = 22
+                        }
+                        frameRect = {
+                            x = 2
+                            y = 42
+                            width = 16
+                            height = 22
+                        }
+                        frameRectRel = {
+                            x = 0.09090909090909091
+                            y = 0.3888888888888889
+                            width = 0.7272727272727273
+                            height = 0.2037037037037037
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 16
+                            height = 22
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 16
+                            height = 22
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_200.bmp
+                            lastModified = {Fri Aug 22 2008 04:24:02 GMT+0400 (RTZ 2 (}
+                            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                            fileSize = 1430
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = GTA2_PED_200
+                        fullName = GTA2_PED_200.bmp
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 8
+                            y = 11
+                        }
+                    }
+                    3 = {
+                        size = {
+                            width = 16
+                            height = 22
+                        }
+                        frameRectWithoutRotation = {
+                            x = 2
+                            y = 66
+                            width = 16
+                            height = 22
+                        }
+                        frameRect = {
+                            x = 2
+                            y = 66
+                            width = 16
+                            height = 22
+                        }
+                        frameRectRel = {
+                            x = 0.09090909090909091
+                            y = 0.6111111111111112
+                            width = 0.7272727272727273
+                            height = 0.2037037037037037
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 16
+                            height = 22
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 16
+                            height = 22
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_203.bmp
+                            lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+                            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                            fileSize = 1430
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = GTA2_PED_203
+                        fullName = GTA2_PED_203.bmp
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 8
+                            y = 11
+                        }
+                    }
+                    4 = {
+                        size = {
+                            width = 16
+                            height = 16
+                        }
+                        frameRectWithoutRotation = {
+                            x = 2
+                            y = 90
+                            width = 16
+                            height = 16
+                        }
+                        frameRect = {
+                            x = 2
+                            y = 90
+                            width = 16
+                            height = 16
+                        }
+                        frameRectRel = {
+                            x = 0.09090909090909091
+                            y = 0.8333333333333334
+                            width = 0.7272727272727273
+                            height = 0.14814814814814814
+                        }
+                        sourceRect = {
+                            x = 0
+                            y = 0
+                            width = 16
+                            height = 16
+                        }
+                        cornerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        untrimmedSize = {
+                            width = 16
+                            height = 16
+                        }
+                        fileData = {
+                            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_204.bmp
+                            lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+                            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                            fileSize = 1334
+                        }
+                        trimmed = false
+                        rotated = false
+                        isSolid = true
+                        trimmedName = GTA2_PED_204
+                        fullName = GTA2_PED_204.bmp
+                        aliasList = {}
+                        centerOffset = {
+                            x = 0
+                            y = 0
+                        }
+                        pivotPoint = {
+                            x = 8
+                            y = 8
+                        }
+                    }
+                }
+                absoluteFileName = C:/Android/workspace/AndroidAndEngine/assets/gfx/chel_run.png
+                trimmedName = chel_run
+                fullName = chel_run.png
+            }
+        }
+        nonFittingSprites = {}
+    }
+}
+
+texture = {
+    size = {
+        width = 22
+        height = 108
+    }
+    area = 2376
+    sprites = {
+        0 = {
+            size = {
+                width = 18
+                height = 18
+            }
+            frameRectWithoutRotation = {
+                x = 2
+                y = 2
+                width = 18
+                height = 18
+            }
+            frameRect = {
+                x = 2
+                y = 2
+                width = 18
+                height = 18
+            }
+            frameRectRel = {
+                x = 0.09090909090909091
+                y = 0.018518518518518517
+                width = 0.8181818181818182
+                height = 0.16666666666666666
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 18
+                height = 18
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 18
+                height = 18
+            }
+            fileData = {
+                absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_208.bmp
+                lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+                created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                fileSize = 1438
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = GTA2_PED_208
+            fullName = GTA2_PED_208.bmp
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 9
+                y = 9
+            }
+        }
+        1 = {
+            size = {
+                width = 18
+                height = 18
+            }
+            frameRectWithoutRotation = {
+                x = 2
+                y = 22
+                width = 18
+                height = 18
+            }
+            frameRect = {
+                x = 2
+                y = 22
+                width = 18
+                height = 18
+            }
+            frameRectRel = {
+                x = 0.09090909090909091
+                y = 0.2037037037037037
+                width = 0.8181818181818182
+                height = 0.16666666666666666
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 18
+                height = 18
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 18
+                height = 18
+            }
+            fileData = {
+                absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_211.bmp
+                lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+                created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                fileSize = 1438
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = GTA2_PED_211
+            fullName = GTA2_PED_211.bmp
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 9
+                y = 9
+            }
+        }
+        2 = {
+            size = {
+                width = 16
+                height = 22
+            }
+            frameRectWithoutRotation = {
+                x = 2
+                y = 42
+                width = 16
+                height = 22
+            }
+            frameRect = {
+                x = 2
+                y = 42
+                width = 16
+                height = 22
+            }
+            frameRectRel = {
+                x = 0.09090909090909091
+                y = 0.3888888888888889
+                width = 0.7272727272727273
+                height = 0.2037037037037037
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 16
+                height = 22
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 16
+                height = 22
+            }
+            fileData = {
+                absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_200.bmp
+                lastModified = {Fri Aug 22 2008 04:24:02 GMT+0400 (RTZ 2 (}
+                created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                fileSize = 1430
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = GTA2_PED_200
+            fullName = GTA2_PED_200.bmp
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 8
+                y = 11
+            }
+        }
+        3 = {
+            size = {
+                width = 16
+                height = 22
+            }
+            frameRectWithoutRotation = {
+                x = 2
+                y = 66
+                width = 16
+                height = 22
+            }
+            frameRect = {
+                x = 2
+                y = 66
+                width = 16
+                height = 22
+            }
+            frameRectRel = {
+                x = 0.09090909090909091
+                y = 0.6111111111111112
+                width = 0.7272727272727273
+                height = 0.2037037037037037
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 16
+                height = 22
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 16
+                height = 22
+            }
+            fileData = {
+                absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_203.bmp
+                lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+                created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                fileSize = 1430
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = GTA2_PED_203
+            fullName = GTA2_PED_203.bmp
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 8
+                y = 11
+            }
+        }
+        4 = {
+            size = {
+                width = 16
+                height = 16
+            }
+            frameRectWithoutRotation = {
+                x = 2
+                y = 90
+                width = 16
+                height = 16
+            }
+            frameRect = {
+                x = 2
+                y = 90
+                width = 16
+                height = 16
+            }
+            frameRectRel = {
+                x = 0.09090909090909091
+                y = 0.8333333333333334
+                width = 0.7272727272727273
+                height = 0.14814814814814814
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 16
+                height = 16
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 16
+                height = 16
+            }
+            fileData = {
+                absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_204.bmp
+                lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+                created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                fileSize = 1334
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = GTA2_PED_204
+            fullName = GTA2_PED_204.bmp
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 8
+                y = 8
+            }
+        }
+    }
+    allSprites = {
+        0 = {
+            size = {
+                width = 18
+                height = 18
+            }
+            frameRectWithoutRotation = {
+                x = 2
+                y = 2
+                width = 18
+                height = 18
+            }
+            frameRect = {
+                x = 2
+                y = 2
+                width = 18
+                height = 18
+            }
+            frameRectRel = {
+                x = 0.09090909090909091
+                y = 0.018518518518518517
+                width = 0.8181818181818182
+                height = 0.16666666666666666
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 18
+                height = 18
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 18
+                height = 18
+            }
+            fileData = {
+                absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_208.bmp
+                lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+                created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                fileSize = 1438
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = GTA2_PED_208
+            fullName = GTA2_PED_208.bmp
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 9
+                y = 9
+            }
+        }
+        1 = {
+            size = {
+                width = 18
+                height = 18
+            }
+            frameRectWithoutRotation = {
+                x = 2
+                y = 22
+                width = 18
+                height = 18
+            }
+            frameRect = {
+                x = 2
+                y = 22
+                width = 18
+                height = 18
+            }
+            frameRectRel = {
+                x = 0.09090909090909091
+                y = 0.2037037037037037
+                width = 0.8181818181818182
+                height = 0.16666666666666666
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 18
+                height = 18
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 18
+                height = 18
+            }
+            fileData = {
+                absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_211.bmp
+                lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+                created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                fileSize = 1438
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = GTA2_PED_211
+            fullName = GTA2_PED_211.bmp
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 9
+                y = 9
+            }
+        }
+        2 = {
+            size = {
+                width = 16
+                height = 22
+            }
+            frameRectWithoutRotation = {
+                x = 2
+                y = 42
+                width = 16
+                height = 22
+            }
+            frameRect = {
+                x = 2
+                y = 42
+                width = 16
+                height = 22
+            }
+            frameRectRel = {
+                x = 0.09090909090909091
+                y = 0.3888888888888889
+                width = 0.7272727272727273
+                height = 0.2037037037037037
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 16
+                height = 22
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 16
+                height = 22
+            }
+            fileData = {
+                absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_200.bmp
+                lastModified = {Fri Aug 22 2008 04:24:02 GMT+0400 (RTZ 2 (}
+                created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                fileSize = 1430
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = GTA2_PED_200
+            fullName = GTA2_PED_200.bmp
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 8
+                y = 11
+            }
+        }
+        3 = {
+            size = {
+                width = 16
+                height = 22
+            }
+            frameRectWithoutRotation = {
+                x = 2
+                y = 66
+                width = 16
+                height = 22
+            }
+            frameRect = {
+                x = 2
+                y = 66
+                width = 16
+                height = 22
+            }
+            frameRectRel = {
+                x = 0.09090909090909091
+                y = 0.6111111111111112
+                width = 0.7272727272727273
+                height = 0.2037037037037037
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 16
+                height = 22
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 16
+                height = 22
+            }
+            fileData = {
+                absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_203.bmp
+                lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+                created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                fileSize = 1430
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = GTA2_PED_203
+            fullName = GTA2_PED_203.bmp
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 8
+                y = 11
+            }
+        }
+        4 = {
+            size = {
+                width = 16
+                height = 16
+            }
+            frameRectWithoutRotation = {
+                x = 2
+                y = 90
+                width = 16
+                height = 16
+            }
+            frameRect = {
+                x = 2
+                y = 90
+                width = 16
+                height = 16
+            }
+            frameRectRel = {
+                x = 0.09090909090909091
+                y = 0.8333333333333334
+                width = 0.7272727272727273
+                height = 0.14814814814814814
+            }
+            sourceRect = {
+                x = 0
+                y = 0
+                width = 16
+                height = 16
+            }
+            cornerOffset = {
+                x = 0
+                y = 0
+            }
+            untrimmedSize = {
+                width = 16
+                height = 16
+            }
+            fileData = {
+                absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_204.bmp
+                lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+                created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+                fileSize = 1334
+            }
+            trimmed = false
+            rotated = false
+            isSolid = true
+            trimmedName = GTA2_PED_204
+            fullName = GTA2_PED_204.bmp
+            aliasList = {}
+            centerOffset = {
+                x = 0
+                y = 0
+            }
+            pivotPoint = {
+                x = 8
+                y = 8
+            }
+        }
+    }
+    absoluteFileName = C:/Android/workspace/AndroidAndEngine/assets/gfx/chel_run.png
+    trimmedName = chel_run
+    fullName = chel_run.png
+}
+
+allSprites = {
+    0 = {
+        size = {
+            width = 16
+            height = 22
+        }
+        frameRectWithoutRotation = {
+            x = 2
+            y = 42
+            width = 16
+            height = 22
+        }
+        frameRect = {
+            x = 2
+            y = 42
+            width = 16
+            height = 22
+        }
+        frameRectRel = {
+            x = 0.09090909090909091
+            y = 0.3888888888888889
+            width = 0.7272727272727273
+            height = 0.2037037037037037
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 16
+            height = 22
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 16
+            height = 22
+        }
+        fileData = {
+            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_200.bmp
+            lastModified = {Fri Aug 22 2008 04:24:02 GMT+0400 (RTZ 2 (}
+            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+            fileSize = 1430
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = GTA2_PED_200
+        fullName = GTA2_PED_200.bmp
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 8
+            y = 11
+        }
+    }
+    1 = {
+        size = {
+            width = 16
+            height = 22
+        }
+        frameRectWithoutRotation = {
+            x = 2
+            y = 66
+            width = 16
+            height = 22
+        }
+        frameRect = {
+            x = 2
+            y = 66
+            width = 16
+            height = 22
+        }
+        frameRectRel = {
+            x = 0.09090909090909091
+            y = 0.6111111111111112
+            width = 0.7272727272727273
+            height = 0.2037037037037037
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 16
+            height = 22
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 16
+            height = 22
+        }
+        fileData = {
+            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_203.bmp
+            lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+            fileSize = 1430
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = GTA2_PED_203
+        fullName = GTA2_PED_203.bmp
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 8
+            y = 11
+        }
+    }
+    2 = {
+        size = {
+            width = 16
+            height = 16
+        }
+        frameRectWithoutRotation = {
+            x = 2
+            y = 90
+            width = 16
+            height = 16
+        }
+        frameRect = {
+            x = 2
+            y = 90
+            width = 16
+            height = 16
+        }
+        frameRectRel = {
+            x = 0.09090909090909091
+            y = 0.8333333333333334
+            width = 0.7272727272727273
+            height = 0.14814814814814814
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 16
+            height = 16
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 16
+            height = 16
+        }
+        fileData = {
+            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_204.bmp
+            lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+            fileSize = 1334
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = GTA2_PED_204
+        fullName = GTA2_PED_204.bmp
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 8
+            y = 8
+        }
+    }
+    3 = {
+        size = {
+            width = 18
+            height = 18
+        }
+        frameRectWithoutRotation = {
+            x = 2
+            y = 2
+            width = 18
+            height = 18
+        }
+        frameRect = {
+            x = 2
+            y = 2
+            width = 18
+            height = 18
+        }
+        frameRectRel = {
+            x = 0.09090909090909091
+            y = 0.018518518518518517
+            width = 0.8181818181818182
+            height = 0.16666666666666666
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 18
+            height = 18
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 18
+            height = 18
+        }
+        fileData = {
+            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_208.bmp
+            lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+            fileSize = 1438
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = GTA2_PED_208
+        fullName = GTA2_PED_208.bmp
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 9
+            y = 9
+        }
+    }
+    4 = {
+        size = {
+            width = 18
+            height = 18
+        }
+        frameRectWithoutRotation = {
+            x = 2
+            y = 22
+            width = 18
+            height = 18
+        }
+        frameRect = {
+            x = 2
+            y = 22
+            width = 18
+            height = 18
+        }
+        frameRectRel = {
+            x = 0.09090909090909091
+            y = 0.2037037037037037
+            width = 0.8181818181818182
+            height = 0.16666666666666666
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 18
+            height = 18
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 18
+            height = 18
+        }
+        fileData = {
+            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_211.bmp
+            lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+            fileSize = 1438
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = GTA2_PED_211
+        fullName = GTA2_PED_211.bmp
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 9
+            y = 9
+        }
+    }
+}
+
+sprites = {
+    0 = {
+        size = {
+            width = 18
+            height = 18
+        }
+        frameRectWithoutRotation = {
+            x = 2
+            y = 2
+            width = 18
+            height = 18
+        }
+        frameRect = {
+            x = 2
+            y = 2
+            width = 18
+            height = 18
+        }
+        frameRectRel = {
+            x = 0.09090909090909091
+            y = 0.018518518518518517
+            width = 0.8181818181818182
+            height = 0.16666666666666666
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 18
+            height = 18
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 18
+            height = 18
+        }
+        fileData = {
+            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_208.bmp
+            lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+            fileSize = 1438
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = GTA2_PED_208
+        fullName = GTA2_PED_208.bmp
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 9
+            y = 9
+        }
+    }
+    1 = {
+        size = {
+            width = 18
+            height = 18
+        }
+        frameRectWithoutRotation = {
+            x = 2
+            y = 22
+            width = 18
+            height = 18
+        }
+        frameRect = {
+            x = 2
+            y = 22
+            width = 18
+            height = 18
+        }
+        frameRectRel = {
+            x = 0.09090909090909091
+            y = 0.2037037037037037
+            width = 0.8181818181818182
+            height = 0.16666666666666666
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 18
+            height = 18
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 18
+            height = 18
+        }
+        fileData = {
+            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_211.bmp
+            lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+            fileSize = 1438
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = GTA2_PED_211
+        fullName = GTA2_PED_211.bmp
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 9
+            y = 9
+        }
+    }
+    2 = {
+        size = {
+            width = 16
+            height = 22
+        }
+        frameRectWithoutRotation = {
+            x = 2
+            y = 42
+            width = 16
+            height = 22
+        }
+        frameRect = {
+            x = 2
+            y = 42
+            width = 16
+            height = 22
+        }
+        frameRectRel = {
+            x = 0.09090909090909091
+            y = 0.3888888888888889
+            width = 0.7272727272727273
+            height = 0.2037037037037037
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 16
+            height = 22
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 16
+            height = 22
+        }
+        fileData = {
+            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_200.bmp
+            lastModified = {Fri Aug 22 2008 04:24:02 GMT+0400 (RTZ 2 (}
+            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+            fileSize = 1430
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = GTA2_PED_200
+        fullName = GTA2_PED_200.bmp
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 8
+            y = 11
+        }
+    }
+    3 = {
+        size = {
+            width = 16
+            height = 22
+        }
+        frameRectWithoutRotation = {
+            x = 2
+            y = 66
+            width = 16
+            height = 22
+        }
+        frameRect = {
+            x = 2
+            y = 66
+            width = 16
+            height = 22
+        }
+        frameRectRel = {
+            x = 0.09090909090909091
+            y = 0.6111111111111112
+            width = 0.7272727272727273
+            height = 0.2037037037037037
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 16
+            height = 22
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 16
+            height = 22
+        }
+        fileData = {
+            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_203.bmp
+            lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+            fileSize = 1430
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = GTA2_PED_203
+        fullName = GTA2_PED_203.bmp
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 8
+            y = 11
+        }
+    }
+    4 = {
+        size = {
+            width = 16
+            height = 16
+        }
+        frameRectWithoutRotation = {
+            x = 2
+            y = 90
+            width = 16
+            height = 16
+        }
+        frameRect = {
+            x = 2
+            y = 90
+            width = 16
+            height = 16
+        }
+        frameRectRel = {
+            x = 0.09090909090909091
+            y = 0.8333333333333334
+            width = 0.7272727272727273
+            height = 0.14814814814814814
+        }
+        sourceRect = {
+            x = 0
+            y = 0
+            width = 16
+            height = 16
+        }
+        cornerOffset = {
+            x = 0
+            y = 0
+        }
+        untrimmedSize = {
+            width = 16
+            height = 16
+        }
+        fileData = {
+            absoluteFileName = C:/Users/gsom/Pictures/sprite/sprite_GTA_2/GTA_2/GTA2_PED_204.bmp
+            lastModified = {Fri Aug 22 2008 04:24:03 GMT+0400 (RTZ 2 (}
+            created = {Fri Nov 14 2014 23:40:45 GMT+0300 (RTZ 2 (}
+            fileSize = 1334
+        }
+        trimmed = false
+        rotated = false
+        isSolid = true
+        trimmedName = GTA2_PED_204
+        fullName = GTA2_PED_204.bmp
+        aliasList = {}
+        centerOffset = {
+            x = 0
+            y = 0
+        }
+        pivotPoint = {
+            x = 8
+            y = 8
+        }
+    }
+}
