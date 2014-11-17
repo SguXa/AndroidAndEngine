@@ -1,68 +1,81 @@
-package com.codephixlabs.movingsprites;
+if(pSceneTouchEvent.getAction() == TouchEvent.ACTION_MOVE){
 
-import org.andengine.engine.camera.Camera;
-import org.andengine.engine.options.EngineOptions;
-import org.andengine.engine.options.ScreenOrientation;
-import org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
-import org.andengine.entity.scene.Scene;
-import org.andengine.entity.scene.background.Background;
-import org.andengine.entity.sprite.AnimatedSprite;
-import org.andengine.opengl.texture.TextureOptions;
-import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
-import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
-import org.andengine.opengl.texture.region.TiledTextureRegion;
-import org.andengine.ui.activity.SimpleBaseGameActivity;
-import org.andengine.util.color.Color;
-import android.view.Menu;
+screen_touched_x = pSceneTouchEvent.getX();
+screen_touched_y = pSceneTouchEvent.getY();
 
-public class MainActivity extends SimpleBaseGameActivity 
-{
-
- private BitmapTextureAtlas texCat;
-private TiledTextureRegion regCat;
-private AnimatedSprite  sprCat;
-private Scene m_Scene;
-private Camera    m_Camera;
-private static int   SPR_COLUMN  = 2;
-private static int   SPR_ROWS  = 4;
- 
-private static final int CAMERA_WIDTH = 480;
-private static final int CAMERA_HEIGHT = 320;
- 
-@Override
-public EngineOptions onCreateEngineOptions() 
-{
- m_Camera = new Camera(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
- EngineOptions en = new EngineOptions(true, ScreenOrientation.LANDSCAPE_FIXED, new RatioResolutionPolicy(
- CAMERA_WIDTH, CAMERA_HEIGHT), m_Camera);
- return en;
-}
- 
-@Override
-protected void onCreateResources() 
-{
- texCat = new BitmapTextureAtlas(this.getTextureManager(), 1024, 1024, TextureOptions.BILINEAR_PREMULTIPLYALPHA);
- regCat = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(texCat, this.getAssets(),"gfx/runningcat.png", 0, 0, SPR_COLUMN, SPR_ROWS);
- texCat.load();
+float dx = screen_touched_x - (hero.getX() +( hero.getWidth()/2+ 20));
+float dy = screen_touched_y - hero.getY();
+float rotationAngle = (float) Math.atan2(dy, dx);
+hero.setRotationCenter(hero.getWidth()/2 +20, hero.getHeight()); 
+hero.setRotation(MathUtils.radToDeg(rotationAngle));
 }
 
-@Override
-protected Scene onCreateScene() 
+hero.setRotation( MathUtils.radToDeg( rotationAngle ) + 90.0f );
+
+telo.attachChild( nogi );
+
+//////////////////
+
+int screen_touched_x, screen_touched_y - координаты твоего прикосновения
+int hero_position_x, hero_position_y - координаты героя
+
+пусть изначально герой смотрит вверх, и будет переменная, которая следит за поворотом спрайта героя
+private float next_hero_rotation = 0; // 0..360 - куда должен смотреть герой
+private float current_hero_rotation = 0; // Эту переменную мы будем менять, для плавности поворота
+private float hero_speed_rotation = 0.5f; // Скорость поворота
+
+... какая-нибудь функция анимации, например OnUpdate
+
+final float dx,dy,alpha;
+
+dx = screen_touched_x - hero_position_x;
+dy = screen_touched_y - hero_position_y;
+
+if( dx > 0)
 {
- m_Scene = new Scene();
- m_Scene.setBackground(new Background(Color.WHITE));
-   
- sprCat = new AnimatedSprite(0, 0, regCat, this.getVertexBufferObjectManager());
- m_Scene.attachChild(sprCat);
-   
- sprCat.animate(100);
- return m_Scene;
+// правый верхний сектор
+if( dy < 0)
+{
+alpha = 90 * ( dx / screen_touched_x );
 }
- 
-@Override
-public boolean onCreateOptionsMenu(Menu menu) {
- // Inflate the menu; this adds items to the action bar if it is present.
- getMenuInflater().inflate(R.menu.main, menu);
- return true;
+// правый нижний
+else
+{
+alpha = 90 + 90 * ( 1 - dx / screen_touched_x );
+}
+
+}
+else
+{
+// левый верхний сектор
+if( dy < 0)
+{
+alpha = 90 + 90 + 90 + 90 * ( dx / screen_touched_x );
+}
+// левый нижний
+else
+{
+alpha = 90 + 90 + 90 * ( 1 - dx / screen_touched_x );
+}
+
+}
+
+next_hero_rotation = alpha;
+
+// Изменяем переменную вращения
+if( current_hero_rotation != next_hero_rotation )
+{
+if( current_hero_rotation > next_hero_rotation )
+{
+current_hero_rotation -= hero_speed_rotation;
+// Если достаточно повернули, то убеждаемся что переменные идентичны
+if( current_hero_rotation <= next_hero_rotation ) current_hero_rotation = hero_speed_rotation;
+}
+else
+{
+current_hero_rotation += hero_speed_rotation;
+if( current_hero_rotation >= next_hero_rotation ) current_hero_rotation = hero_speed_rotation;
 }
 }
+
+__hero__.setRotation( current_hero_rotation );
