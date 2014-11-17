@@ -95,15 +95,15 @@ public class AnimationSprite extends SimpleBaseGameActivity {
 	 sprCat.animate(100);
 	 
 	 final LoopEntityModifier entityModifier =
-			 //LoopEntityModifier Ч зацикливает выполнение модификаторов;
+			 //LoopEntityModifier Ч зацикливает выполнение модификаторов; сылка по модификаторам http://flexymind.com/andengine-animation.html
 				new LoopEntityModifier(
 						//SequenceEntityModifier Ч выполн€ет модификаторы последовательно, в пор€дке их добавлени€;
 						new SequenceEntityModifier(
-								new RotationModifier(3, 0, 90)//крутить обьект
-//								new AlphaModifier(2, 1, 0)
+								new RotationModifier(3, 0, 360)//модификатор, позвол€ющий повернуть объект
+//								new AlphaModifier(2, 1, 0)//модификатор, предназначенный дл€ изменени€ альфа-канала объекта 
 //								new AlphaModifier(1, 0, 1)
-//								new ScaleModifier(2, 1, 0.5f),//удал€ет вид от обьекта
-//								new DelayModifier(0.5f)//возвращает к обычному виду
+//								new ScaleModifier(2, 1, 0.5f),//позвол€ет увеличивать/уменьшать объекты
+//								new DelayModifier(0.5f)//модификатор задержки. ќн необходим дл€ вставки паузы между модификаторами.
 //ParallelEntityModifier Ч выполн€ет несколько модификаторов одновременно;/
 //								new ParallelEntityModifier(
 //										new ScaleModifier(3, 0.5f, 5),
