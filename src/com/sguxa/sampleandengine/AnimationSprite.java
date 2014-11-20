@@ -122,6 +122,8 @@ public class AnimationSprite extends SimpleBaseGameActivity {
 	 m_Scene.attachChild(sprCat);
 //			scene.attachChild(rect);
 	 return m_Scene;
+	 //Proverka git
+	 
 	}
 	  
 //	 @Override
