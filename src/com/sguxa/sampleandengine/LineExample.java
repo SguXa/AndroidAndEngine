@@ -1,128 +1,186 @@
 package com.sguxa.sampleandengine;
 
-import java.util.Random;
-//импорт свернут для удобства
-import java.io.IOException;
-import java.io.InputStream;
-
+import org.andengine.engine.Engine;
 import org.andengine.engine.camera.Camera;
 import org.andengine.engine.options.EngineOptions;
 import org.andengine.engine.options.ScreenOrientation;
-import org.andengine.engine.options.resolutionpolicy.FillResolutionPolicy;
 import org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
+import org.andengine.entity.primitive.Rectangle;
 import org.andengine.entity.scene.Scene;
 import org.andengine.entity.scene.background.Background;
+import org.andengine.entity.shape.IAreaShape;
 import org.andengine.entity.sprite.Sprite;
-import org.andengine.entity.util.FPSLogger;
-import org.andengine.opengl.texture.ITexture;
+import org.andengine.extension.physics.box2d.FixedStepPhysicsWorld;
+import org.andengine.extension.physics.box2d.PhysicsConnector;
+import org.andengine.extension.physics.box2d.PhysicsFactory;
+import org.andengine.extension.physics.box2d.PhysicsWorld;
+import org.andengine.extension.physics.box2d.util.Vector2Pool;
+import org.andengine.input.sensor.acceleration.AccelerationData;
+import org.andengine.input.sensor.acceleration.IAccelerationListener;
+import org.andengine.opengl.texture.TextureManager;
 import org.andengine.opengl.texture.TextureOptions;
 import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
-import org.andengine.opengl.texture.bitmap.BitmapTexture;
-import org.andengine.opengl.texture.region.ITextureRegion;
+import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlasTextureRegionFactory;
 import org.andengine.opengl.texture.region.TextureRegion;
-import org.andengine.opengl.texture.region.TextureRegionFactory;
+import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.ui.activity.SimpleBaseGameActivity;
-import org.andengine.util.adt.io.in.IInputStreamOpener;
-import org.andengine.util.debug.Debug;
  
-
-/**
- SguXa
- */
-public class LineExample extends SimpleBaseGameActivity {
-	// ===========================================================
-    // Constants
-    // ===========================================================
-	private static final int CAMERA_WIDTH = 720;  // ширина экрана
-    private static final int CAMERA_HEIGHT = 480; // высота экрана
-     
-    // ===========================================================
-    // Fields
-    // ===========================================================
-    private ITexture mTexture;     // мой файл с текстурой
-    private ITextureRegion mFaceTextureRegion;  // определенный прямоугольный кусок моей текстуры
-    public SpriteChel Chel;
-    private BitmapTextureAtlas mFontTexture;
-    private BitmapTextureAtlas mBitmapTextureAtlas;
-    private TextureRegion chelTexture;  
- // ===========================================================
-    // Methods for/from SuperClass/Interfaces
-    // ===========================================================
-     
-    //@Override
- // инициализируем движок
-    public EngineOptions onCreateEngineOptions()
-    {
-      // инициализируем камеру
-      final Camera camera=new Camera(0,0,CAMERA_WIDTH,CAMERA_HEIGHT);
-      // инициализируем движок. Его параметры:
-      // Первый (true) - полноэкранный режим
-      // Второй - ландшафтная (горизонтальная) ориентация экрана.
-      // Третий FillResolutionPolicy() - отличная краткая статья здесь http://flexymind.com/blog/?p=253
-      // Четвертый - наша камера
-         
-         return new EngineOptions(true,ScreenOrientation.LANDSCAPE_SENSOR,new RatioResolutionPolicy(CAMERA_WIDTH,CAMERA_HEIGHT),camera);
-    }
+import android.content.res.Resources;
+import android.hardware.SensorManager;
  
-    // загружаем ресурсы. Картинки\звуки\музыку и т.п.
-    @Override
-    protected void onCreateResources()
-    {
-    	
-//    	this.mBitmapTextureAtlas= new BitmapTextureAtlas(null, 256,256,null, TextureOptions.BILINEAR_PREMULTIPLYALPHA);
-    	try{
-    		this.mTexture=new BitmapTexture(this.getTextureManager(), new IInputStreamOpener(){
-    			
-    			public InputStream open() throws IOException{
-    				return getAssets().open("gfx/GTA2_PED_130.bmp");
-    			}
-    		});
-    	
-    	this.mTexture.load();
-    	this.mFaceTextureRegion=TextureRegionFactory.extractFromTexture(this.mTexture);
-//     try {
-//   this.mTexture = new BitmapTexture(this.getTextureManager(), new IInputStreamOpener() {
-//    //@Override
-//    public InputStream open() throws IOException {
-//     return getAssets().open("gfx/ship.png");
-//    }
-//   });
-// 
-//  // загрузка текстуры из файла 
-//   this.mTexture.load();
-//  // выделение куска текстуры (региона) для нас. в данном случа вся текстура идет в регион  
-//   this.mFaceTextureRegion = TextureRegionFactory.extractFromTexture(this.mTexture); 
-  } 
-     // Если текстура не загружена, в дебаг-лист попалет сообщение, содержащее номер ошибки ввода-вывода
-     catch (IOException e) {
-   Debug.e(e);
-  }         
-    }
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
  
-    // создаем сцену
-    @Override
-    protected Scene onCreateScene()
-    {
-    	this.mEngine.registerUpdateHandler(new FPSLogger());
-    	final Scene scene=new Scene();
-    	scene.setBackground(new Background(0.09804f, 0.6274f, 0.8784f));
-    	
-    	final float centerX=(CAMERA_WIDTH-this.mFaceTextureRegion.getWidth()) /2;
-    	final float centerY=(CAMERA_HEIGHT-this.mFaceTextureRegion.getWidth()) /2;
-    	
-    	final Sprite face = new Sprite(centerX, centerY, this.mFaceTextureRegion, this.getVertexBufferObjectManager());
-		scene.attachChild(face);
-    	
-    	return scene;
-//    	Chel = new SpriteChel(CAMERA_WIDTH / 2, CAMERA_HEIGHT - 200, this.monsterTexture);
-    }
-//     Scene scene = new Scene();
-//        // заливаем бэкграунд одним цветом
-//     scene.setBackground(new Background(0.9804f, 0.0f, 0.5f));
-//     // создаем спрайт и пихаем его в сцену
-//        final Sprite face = new Sprite(100, 100, this.mFaceTextureRegion, this.getVertexBufferObjectManager() );
-//        scene.attachChild(face);
-//        return scene;
-//    }
-    
+public class LineExample extends SimpleBaseGameActivity implements
+  IAccelerationListener {
+ 
+ private static int CAMERA_WIDTH;
+ private static int CAMERA_HEIGHT;
+ private static final int MAX_STEPS_PER_UPDATE = 60;
+ private static final int PHYSICS_STEPS_PER_SECOND = 60;
+ private static final int PHYSICS_VELOCITY_ITERATIONS = 5;
+ private static final int PHYSICS_POSITION_ITERATIONS = 5;
+ private TextureRegion mShip;
+ private Scene mScene;
+ private PhysicsWorld mPhysicsWorld;
+ private final FixtureDef FIXTURE_DEF = PhysicsFactory.createFixtureDef(0,
+   0.5f, 0.5f);
+ 
+ /**
+  * Определяем размеры экрана, создаём камеру и определяем опции движка
+  */
+ @Override
+ public EngineOptions onCreateEngineOptions() {
+  Resources res = getResources();
+  CAMERA_HEIGHT = res.getDisplayMetrics().heightPixels;
+  CAMERA_WIDTH = res.getDisplayMetrics().widthPixels;
+  Camera mCamera = new Camera(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
+  return new EngineOptions(true, ScreenOrientation.PORTRAIT_FIXED,
+    new RatioResolutionPolicy(CAMERA_WIDTH, CAMERA_HEIGHT), mCamera);
+ }
+ 
+ /**
+  * Загружаем ресурсы
+  */
+ @Override
+ protected void onCreateResources() {
+  BitmapTextureAtlasTextureRegionFactory.setAssetBasePath("gfx/");
+  Engine engine = getEngine();
+  TextureManager tm = engine.getTextureManager();
+  BitmapTextureAtlas mTexture = new BitmapTextureAtlas(tm, 1024, 768,
+    TextureOptions.NEAREST_PREMULTIPLYALPHA);
+  mShip = BitmapTextureAtlasTextureRegionFactory.createFromAsset(
+    mTexture, this, "speedship.png", 0, 0);
+  tm.loadTexture(mTexture);
+ }
+ 
+ /**
+  * Создаём сцену, инициализируем физику и выводим на сцену
+  * "действующее лицо"
+  */
+ @Override
+ protected Scene onCreateScene() {
+  mScene = new Scene();
+  mScene.setBackground(new Background(0.09804f, 0.7274f, 0.8f));
+  mPhysicsWorld = createPhysicBox(mScene);
+  Sprite sprite = new Sprite(CAMERA_WIDTH / 2 - mShip.getWidth() / 2,
+    CAMERA_HEIGHT - mShip.getHeight(), mShip,
+    getVertexBufferObjectManager());
+  mScene.attachChild(sprite);
+  Body body = PhysicsFactory.createBoxBody(mPhysicsWorld, sprite,
+    BodyType.DynamicBody, FIXTURE_DEF);
+  mPhysicsWorld.registerPhysicsConnector(new PhysicsConnector(sprite,
+    body, true, true));
+  return mScene;
+ }
+ 
+ /**
+  * Инициализация физики в игре. Также устанавливаем статические объекты -
+  * "стены"
+  * 
+  * @param mScene
+  * @return PhysicsWorld
+  */
+ private PhysicsWorld createPhysicBox(Scene mScene) {
+  PhysicsWorld mPhysicsWorld = new FixedStepPhysicsWorld(
+    PHYSICS_STEPS_PER_SECOND, MAX_STEPS_PER_UPDATE, new Vector2(0,
+      SensorManager.GRAVITY_EARTH), false,
+    PHYSICS_VELOCITY_ITERATIONS, PHYSICS_POSITION_ITERATIONS);
+  VertexBufferObjectManager vbo = this.getVertexBufferObjectManager();
+ 
+  final IAreaShape ground = new Rectangle(0, CAMERA_HEIGHT - 2,
+    CAMERA_WIDTH, 2, vbo);
+  final IAreaShape roof = new Rectangle(0, 0, CAMERA_WIDTH, 2, vbo);
+  final IAreaShape left = new Rectangle(0, 0, 2, CAMERA_HEIGHT, vbo);
+  final IAreaShape right = new Rectangle(CAMERA_WIDTH - 2, 0, 2,
+    CAMERA_HEIGHT, vbo);
+ 
+  final IAreaShape br1 = new Rectangle(0, CAMERA_HEIGHT / 3, CAMERA_WIDTH
+    - CAMERA_WIDTH / 3, 2, vbo);
+  final IAreaShape br2 = new Rectangle(CAMERA_WIDTH - CAMERA_WIDTH / 3,
+    2 * CAMERA_HEIGHT / 3, 4 * CAMERA_WIDTH - CAMERA_WIDTH / 3, 2,
+    vbo);
+ 
+  PhysicsFactory.createBoxBody(mPhysicsWorld, ground,
+    BodyType.StaticBody, FIXTURE_DEF);
+  PhysicsFactory.createBoxBody(mPhysicsWorld, roof, BodyType.StaticBody,
+    FIXTURE_DEF);
+  PhysicsFactory.createBoxBody(mPhysicsWorld, left, BodyType.StaticBody,
+    FIXTURE_DEF);
+  PhysicsFactory.createBoxBody(mPhysicsWorld, right, BodyType.StaticBody,
+    FIXTURE_DEF);
+ 
+  PhysicsFactory.createBoxBody(mPhysicsWorld, br1, BodyType.StaticBody,
+    FIXTURE_DEF);
+  PhysicsFactory.createBoxBody(mPhysicsWorld, br2, BodyType.StaticBody,
+    FIXTURE_DEF);
+ 
+  mScene.attachChild(ground);
+  mScene.attachChild(roof);
+  mScene.attachChild(left);
+  mScene.attachChild(right);
+ 
+  mScene.attachChild(br1);
+  mScene.attachChild(br2);
+ 
+  mScene.registerUpdateHandler(mPhysicsWorld);
+  return mPhysicsWorld;
+ }
+ 
+ /**
+  * Регистрируем слушатель акселерометра
+  */
+ @Override
+ protected void onResume() {
+  super.onResume();
+  this.enableAccelerationSensor(this);
+ }
+ 
+ /**
+  * Удаляем слушатель акселерометра
+  */
+ @Override
+ protected void onPause() {
+  this.disableAccelerationSensor();
+  super.onPause();
+ }
+ 
+ @Override
+ public void onAccelerationAccuracyChanged(AccelerationData pAccelerationData) {
+ }
+ 
+ /**
+  * При изменении вектора гравитации меняем его в виртуальном мире
+  */
+ @Override
+ public void onAccelerationChanged(AccelerationData pData) {
+  if (mPhysicsWorld != null) {
+   final Vector2 gravity = Vector2Pool.obtain(pData.getX(),
+     pData.getY());
+   mPhysicsWorld.setGravity(gravity);
+   Vector2Pool.recycle(gravity);
+  }
+ }
 }
